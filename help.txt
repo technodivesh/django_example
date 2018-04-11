@@ -1,0 +1,15 @@
+# To get fields with Foreign relationship
+
+Q1 = Question.objects.get(pk=1)
+Q1.choice_set.all()
+
+
+# Choice has ForiegnKey for 'question' as 'Question'
+# We can get question_text of 'Question' table from Choice object
+C1 = Choice.objects.select_related('question').get(pk=1)
+C1.question  # retuen Question object
+C1.question.question_text # Returns string
+
+>>> Choice.objects.filter(question__question_text__startswith='what')
+<QuerySet [<Choice: Nothing>, <Choice: Nothing special>, <Choice: All good>]>
+
