@@ -1,0 +1,17 @@
+
+<form action="" method="post" >
+{% csrf_token %}
+<h4>Vote For: {{ choice_obj_list.first.question.question_text }}</h4>
+<ul>
+{% for choice_obj in choice_obj_list %}
+	
+
+	<li>
+		<input type="radio" name="vote" value="{{ choice_obj.id }}">
+		{{ choice_obj.choice_text }}
+	</li>
+	
+{% endfor %}
+</ul>	
+<input type="submit" name="vote">
+</form>

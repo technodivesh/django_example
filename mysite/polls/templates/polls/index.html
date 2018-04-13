@@ -2,9 +2,12 @@
 
 {% for question in question_list %}
 	<li>
-		<a href="{{ question.id }}">{{ question.question_text }}</a> &nbsp;
+		<a href="{{ question.id }}" target="_blank">{{ question.question_text }}</a> &nbsp;
 		<span>{{ question.pub_date }}</span>&nbsp;
-		<span>{{ question.choice_set.all }}</span>
+
+		{% for choice in question.choice_set.all %}
+			<span>{{ choice.choice_text }}</span>&nbsp;
+		{% endfor %}
 	</li>
 
 {% endfor %}

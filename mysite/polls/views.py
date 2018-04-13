@@ -16,11 +16,42 @@ def index(request):
 
 
 def detail(request, question_id):
-	return HttpResponse("Detail page")
+
+	question_obj = Question.objects.get(pk=question_id)
+
+	context = {
+		'question_obj':question_obj
+	}
+	return render(request,'polls/detail.html', context)
 
 
 def vote(request, question_id):
-	return HttpResponse("Vote page %s" % question_id )
+	# return HttpResponse("Vote page %s" % question_id )
+
+	if request.method == 'POST':
+
+
+		print (request.POST['vote'])
+		return HttpResponse("Vote DOne %s" % request.POST )
+
+
+
+
+
+
+
+
+
+
+
+	choice_obj_list = Choice.objects.filter(question_id=question_id )
+	context = {
+		'choice_obj_list':choice_obj_list
+	}
+
+	return render(request, 'polls/vote.html',context)
+
+
 
 
 def result(request, question_id):

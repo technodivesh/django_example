@@ -1,0 +1,18 @@
+{% if question_obj %}
+
+<h3>Q: {{ question_obj.question_text }}</h3		
+
+	
+	<ul>
+		{% for choice_obj in question_obj.choice_set.all %}
+
+			<li>{{ choice_obj.choice_text }}</li>
+
+		{% endfor %}
+	</ul>
+
+<a href="/polls/{{ question_obj.id }}/vote">
+	<button>Vote</button>
+</a>
+
+{% endif %}
