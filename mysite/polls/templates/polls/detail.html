@@ -11,7 +11,8 @@
 		{% endfor %}
 	</ul>
 
-<a href="/polls/{{ question_obj.id }}/vote">
+<!-- <a href="/polls/{{ question_obj.id }}/vote"> -->
+<a href="{% url 'polls:vote' question_obj.id %}">
 	<button>Vote</button>
 </a>
 

@@ -30,17 +30,17 @@ def vote(request, question_id):
 
 	if request.method == 'POST':
 
+		choice_votes = Choice.objects.get(pk=request.POST.get('vote'))
+		choice_votes.votes += 1
+		choice_votes.save()
 
-		print (request.POST['vote'])
-		return HttpResponse("Vote DOne %s" % request.POST )
+		question_list = Question.objects.all()
+		context = {
+			'question_list':question_list
+		}	
 
 
-
-
-
-
-
-
+		return render(request,'polls/index.html', context )
 
 
 

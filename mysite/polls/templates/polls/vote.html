@@ -1,5 +1,5 @@
 
-<form action="" method="post" >
+<form action="{% url 'polls:vote' choice_obj_list.first.question.id %}" method="post" name="vote_form" >
 {% csrf_token %}
 <h4>Vote For: {{ choice_obj_list.first.question.question_text }}</h4>
 <ul>
@@ -13,5 +13,5 @@
 	
 {% endfor %}
 </ul>	
-<input type="submit" name="vote">
+<input type="submit" name="vote1">
 </form>

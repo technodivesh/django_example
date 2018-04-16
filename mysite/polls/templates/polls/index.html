@@ -2,7 +2,7 @@
 
 {% for question in question_list %}
 	<li>
-		<a href="{{ question.id }}" target="_blank">{{ question.question_text }}</a> &nbsp;
+		<a href="{% url 'polls:detail' question.id %}" target="_blank">{{ question.question_text }}</a> &nbsp;
 		<span>{{ question.pub_date }}</span>&nbsp;
 
 		{% for choice in question.choice_set.all %}
