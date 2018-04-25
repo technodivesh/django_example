@@ -15,5 +15,8 @@
 <a href="{% url 'polls:vote' question_obj.id %}">
 	<button>Vote</button>
 </a>
+<a href="{% url 'polls:result' question_obj.id %}">
+	<button>Result</button>
+</a>
 
 {% endif %}

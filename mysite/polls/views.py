@@ -3,6 +3,8 @@ from django.http import HttpResponse
 
 from .models import Question, Choice
 
+# print ('static--', static)
+
 # Create your views here.
 def index(request):
 
@@ -55,4 +57,10 @@ def vote(request, question_id):
 
 
 def result(request, question_id):
-	return HttpResponse("Result page %s" % question_id )
+
+	#return HttpResponse("Result page %s" % question_id )
+
+	question = Question.objects.get(pk=question_id)
+	context={'question':question }
+	return render(request,'polls/result.html',context)
+
