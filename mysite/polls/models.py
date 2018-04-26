@@ -17,6 +17,15 @@ class Question(models.Model):
 		now = timezone.now()
 		return now - datetime.timedelta(days=1) <= self.pub_date <= now
 
+	# Change name 'WAS PUBLISHED RECENTLY' to 'Published recently?' for admin page on Question page
+	was_published_recently.short_description = 'Published recently?'
+
+	# Change True/ False with right check and cross icons
+	was_published_recently.boolean = True
+
+	was_published_recently.admin_order_field = 'pub_date'
+
+
 class Choice(models.Model):
 
 	choice_text = models.CharField(max_length=200)
