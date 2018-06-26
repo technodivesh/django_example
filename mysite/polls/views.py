@@ -2,11 +2,15 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 from .models import Question, Choice
+from django.contrib.auth.decorators import login_required
 
 # print ('static--', static)
 
 # Create your views here.
+@login_required
 def index(request):
+
+	print(request.user.is_authenticated)
 
 	question_list = Question.objects.all()
 

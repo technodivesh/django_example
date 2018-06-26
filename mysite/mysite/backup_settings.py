@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'polls',
     'mymodel',
+    'exuser',
 ]
 
 MIDDLEWARE = [
@@ -139,3 +140,9 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/uploads/'
 MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+
+
+# if not logged in every request with @login_required will redirect page to
+LOGIN_URL = '/login'
+# After login page redirect to 
+LOGIN_REDIRECT_URL = '/polls'
